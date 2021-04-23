@@ -23,22 +23,22 @@ bbmigrate --server-url https://bitbucket.example.com --server-user john.doe --cl
 
 ### Arguments
 
-`--server-url, -s`\
+`--server-url, -s`  
   - The URL for the Bitbucket Server instance (e.g. `-s https://bitbucket.mycompany.com`). Should include a port number if you're hosting on a port other than `80` or `443`.
 
-`--server-user, -su`\
+`--server-user, -su`  
   - The username of a Bitbucket Server user with read access to all repositories in your instance.
 
-`--server-pass, -sp`\
+`--server-pass, -sp`  
   - The password for the Bitbucket Server user.
 
-`--workspace, -w`\
+`--workspace, -w`  
   - The name of the workspace in Bitbucket Cloud to migrate the projects and repositories to.
 
-`--cloud-user, -cu`\
+`--cloud-user, -cu`  
   - The username of a Bitbucket Cloud user with full read/write access to projects and repositories in the target workspace.
 
-`--cloud-pass, -cp`\
+`--cloud-pass, -cp`  
   - The password for the Bitbucket Cloud user.
   - **NOTE**: it's recommended to create an ["App Password"](https://support.atlassian.com/bitbucket-cloud/docs/app-passwords/) in Bitbucket Cloud for this purpose.
 
