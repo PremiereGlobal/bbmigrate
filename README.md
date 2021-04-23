@@ -21,14 +21,6 @@ An example usage would be:
 bbmigrate --server-url https://bitbucket.example.com --server-user john.doe --cloud-user johnnydoe123 --workspace mycompanyspace
 ```
 
-All of the arguments are required, so `bbmigrate` will prompt you for values if you omit any of them. `bbmigrate` will not display passwords typed into its prompt, so it's advised to use the above method and type your creds in at the prompt!
-
-If you need to use the tool non-interactively, however, `bbmigrate` will accept passwords via the `--server-pass` and `--cloud-pass` arguments if you want to pass them in.
-
-```
-bbmigrate --server-url https://bitbucket.example.com --server-user john.doe --server-pass SuperS3cure123! --cloud-user johnnydoe123 --cloud-pass QeT5?JzY%T2N --workspace mycompanyspace
-```
-
 ### Arguments
 
 `--server-url, -s`\
@@ -49,6 +41,14 @@ bbmigrate --server-url https://bitbucket.example.com --server-user john.doe --se
 `--cloud-pass, -cp`\
   - The password for the Bitbucket Cloud user.
   - **NOTE**: it's recommended to create an ["App Password"](https://support.atlassian.com/bitbucket-cloud/docs/app-passwords/) in Bitbucket Cloud for this purpose.
+
+All of the arguments are required, so `bbmigrate` will prompt you for values if you omit any. It won't display passwords typed into the `server-pass` or `cloud-pass` prompt, so it's advised to omit these flags from your command so as not to expose passwords in your shell or history.
+
+If, however, you need to use the tool non-interactively `bbmigrate` will accept passwords via the `--server-pass` and `--cloud-pass` flags.
+
+```
+bbmigrate --server-url https://bitbucket.example.com --server-user john.doe --server-pass SuperS3cure123! --cloud-user johnnydoe123 --cloud-pass QeT5?JzY%T2N --workspace mycompanyspace
+```
 
 ## Installation From Source
 
