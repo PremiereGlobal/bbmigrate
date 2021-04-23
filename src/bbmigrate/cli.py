@@ -111,11 +111,11 @@ def main():
             print(repo_dir)
 
             print(f'Cloning repository {repo["slug"]}...')
-            subprocess.run(['git', 'clone', '--bare', old_repo_git, repo_dir])
+            subprocess.run(['git', '-c', 'http.postbuffer=500M', '-c', 'http.maxrequestbuffer=100M', 'clone', '--bare', old_repo_git, repo_dir])
 
             print(f'Mirroring repository {repo["slug"]} to Bitbucket Cloud...')
             os.chdir(repo_dir)
-            subprocess.run(['git', 'push', '--mirror', new_repo_git])
+            subprocess.run(['git', '-c', 'http.postbuffer=500M', '-c', 'http.maxrequestbuffer=100M', 'push', '--mirror', new_repo_git])
             os.chdir(clone_dir)
 
             print(f'Removing local repo for {repo["slug"]}...')
