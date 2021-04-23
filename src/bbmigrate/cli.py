@@ -103,7 +103,7 @@ def main():
             if bbcloud.check_repo_exists(args.cloud_user, args.cloud_pass, args.workspace, new_repo_name) == False:
                 print(f'Creating repository {new_repo_name} in Bitbucket Cloud...')
             else:
-                print(f'Repository {new_repo_name} already exists in Bitargs.cloud_passucket Cloud. Updating...')
+                print(f'Repository {new_repo_name} already exists in Bitbucket Cloud. Updating...')
 
             bbcloud.make_repo(args.cloud_user, args.cloud_pass, args.workspace, new_repo_name, repo_desc, new_project_key)
 
