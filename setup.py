@@ -5,7 +5,7 @@ with open('README.md', encoding='UTF-8') as f:
 
 setup(
     name='bbmigrate',
-    version='1.0.0',
+    version='1.0.1',
     description='A utility for migrating projects and repos from Bitbucket Server to Bitbucket Cloud.',
     long_description=readme,
     author='Michael Davis',
@@ -19,7 +19,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'bbmigrate=bbmigrate.cli:main'
+            'bbmigrate=bbmigrate.main:main'
         ]
     }
 )
