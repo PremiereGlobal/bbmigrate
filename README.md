@@ -50,6 +50,32 @@ If, however, you need to use the tool non-interactively `bbmigrate` will accept 
 bbmigrate --server-url https://bitbucket.example.com --server-user john.doe --server-pass SuperS3cure123! --cloud-user johnnydoe123 --cloud-pass QeT5?JzY%T2N --workspace mycompanyspace
 ```
 
+#### Environment Variables
+
+You may set the following environment variables to set default values for each of the prompted options:
+
+```
+BBMIGRATE_SERVER_URL
+BBMIGRATE_SERVER_USER
+BBMIGRATE_SERVER_PASS
+BBMIGRATE_WORKSPACE
+BBMIGRATE_CLOUD_USER
+BBMIGRATE_CLOUD_PASS
+```
+
+If, however, you wish to use the tool non-interactively, you must set the following environment
+variable to something truthy as well:
+
+```
+ARGPARSE_PROMPT_AUTO
+```
+
+Example invocation:
+
+```
+ARGPARSE_PROMPT_AUTO=1 bbmigrate
+```
+
 ## Installation From Source
 
 To install the package after you've cloned the repository, you'll want to run the following command from within the project directory:

@@ -24,27 +24,33 @@ def create_parser():
     parser.add_argument(
         '--server-url', '-s',
         dest='server_url',
+        default=os.environ.get('BBMIGRATE_SERVER_URL'),
         help='URL of the Bitbucket Server')
     parser.add_argument(
         '--server-user', '-su',
         dest='server_user',
+        default=os.environ.get('BBMIGRATE_SERVER_USER'),
         help='Bitbucket Server username')
     parser.add_argument(
         '--server-pass', '-sp',
         dest='server_pass',
+        default=os.environ.get('BBMIGRATE_SERVER_PASS'),
         help='Bitbucket Server password',
         secure=True)
     parser.add_argument(
         '--workspace', '-w',
         dest='workspace',
+        default=os.environ.get('BBMIGRATE_WORKSPACE'),
         help='Bitbucket Cloud workspace name')
     parser.add_argument(
         '--cloud-user', '-cu',
         dest='cloud_user',
+        default=os.environ.get('BBMIGRATE_CLOUD_USER'),
         help='Bitbucket Cloud username (not e-mail)')
     parser.add_argument(
         '--cloud-pass', '-cp',
         dest='cloud_pass',
+        default=os.environ.get('BBMIGRATE_CLOUD_PASS'),
         help='Bitbucket Cloud password',
         secure=True)
     return parser
