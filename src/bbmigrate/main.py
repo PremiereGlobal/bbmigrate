@@ -53,6 +53,11 @@ def create_parser():
         default=os.environ.get('BBMIGRATE_CLOUD_PASS'),
         help='Bitbucket Cloud password',
         secure=True)
+    parser.add_argument(
+        '--no-remove-repos', '-norm',
+        dest='no_remove_repos',
+        default=os.environ.get('BBMIGRATE_NO_REMOVE_REPOS'),
+        help='Do not remove locally-cloned repos (default: false)')
     return parser
 
 def main():
@@ -174,13 +179,14 @@ def main():
                 logger.exception(f'Failed to change to directory {clone_dir}!')
                 sys.exit(1)
 
-            logger.info(f'Removing local cloned repo for "{repo_name}" in {repo_dir}"...')
-            try:
-                os_system_string = "rm -rf " + repo_dir
-                os.system(os_system_string)
-            except OSError:
-                logger.exception(f'Failed to remove directory {repo_dir}')
-                sys.exit(1)
+            if not args.no_remove_repos:
+                logger.info(f'Removing local cloned repo for "{repo_name}" in {repo_dir}"...')
+                try:
+                    os_system_string = "rm -rf " + repo_dir
+                    os.system(os_system_string)
+                except OSError:
+                    logger.exception(f'Failed to remove directory {repo_dir}')
+                    sys.exit(1)
 
     # When it's all over, remove the tmp dir to keep things tidy
     try:

@@ -63,14 +63,13 @@ BBMIGRATE_CLOUD_USER
 BBMIGRATE_CLOUD_PASS
 ```
 
-If, however, you wish to use the tool non-interactively, you must set the following environment
-variable to something truthy as well:
+If, however, you wish to use the tool non-interactively, you must set the following environment variable to something truthy as well:
 
 ```
 ARGPARSE_PROMPT_AUTO
 ```
 
-Example invocation:
+Example non-interactive invocation:
 
 ```
 ARGPARSE_PROMPT_AUTO=1 bbmigrate
