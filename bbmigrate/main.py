@@ -130,8 +130,6 @@ def main():
     projects=[]
     logger.info(f'Retrieving projects and repos from Bitbucket Server {args.server_url}')
     for p in projects_gen:
-        if p['key'] != "SREA":
-            continue
         new_project_key = p['key'].replace("-", "")
         project_dir = os.path.join(clone_dir, new_project_key)
         p['project_dir']=project_dir
