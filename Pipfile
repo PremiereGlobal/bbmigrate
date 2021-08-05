@@ -4,6 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+atlassian-python-api = "*"
+argparse-prompt = "*"
+threadly = "*"
 
 [dev-packages]
 
