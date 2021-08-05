@@ -1,10 +1,18 @@
-FROM python:3.8
+FROM python:3.9-slim
 
-RUN mkdir -m 700 /root/.ssh
-RUN ssh-keyscan bitbucket.org >> /root/.ssh/known_hosts
+RUN apt-get update && \
+apt-get dist-upgrade -y && \
+apt-get install -y --no-install-recommends git curl && \
+rm -rf /var/lib/apt/lists/*
 
-ADD . /bbmigrate
-WORKDIR /bbmigrate
+RUN mkdir /app
+WORKDIR /app
+ADD bbmigrate /app/bbmigrate
+ADD setup.py /app/
+ADD README.md /app/
+ADD Pipfile /app/
+ADD Pipfile.lock /app/
 RUN pip install .
 
-CMD /bbmigrate/forever.sh
+ENV BBMIGRATE_IN_DOCKER=true
+CMD bbmigrate
